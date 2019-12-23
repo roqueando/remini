@@ -1,0 +1,23 @@
+{
+  "name": "roqueando/remini",
+  "description": "A distributed PHP application to a POC",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Vitor Roque",
+      "email": "vitor.roque@netshow.me"
+    }
+  ],
+  "require": {
+    "nikic/fast-route": "^1.3",
+    "bramus/router": "^1.4",
+    "league/event": "^2.2",
+    "react/event-loop": "^1.1",
+    "react/socket": "^1.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Remini\\": "src/"
+    }
+  }
+}
