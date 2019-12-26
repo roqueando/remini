@@ -25,6 +25,17 @@ class Application extends CLI
     if ($options->getOpt('up')) {
       $this->success('Running Remini\Services\HelloService');
       (new HelloService)->run();
+      /*
+        TODO: get all services classes 
+        and call the function run() for everybody;
+
+        Accessing the `services` folder 
+        and listing one by one.
+        For each class, get that class
+        to a variable and call run();
+        
+        Then all services will be up together.
+      */
       return;
     }
   }
