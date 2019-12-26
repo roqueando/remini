@@ -44,11 +44,11 @@ class Messager
   {
     $results = [];
     foreach ($this->queues as $key => $value) {
+      var_export($key);
       $queue = msg_get_queue($value);
       $rcv = msg_receive($queue, 1, $msg_type, 1024, $message, true, MSG_IPC_NOWAIT, $error_code);
       if ($rcv) {
         array_push($results, $message);
-        echo "rodou";
       }
     }
     // return $thisresult;

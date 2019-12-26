@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bdcba19f8959a7b6f219d0bc4b4ea8e4",
-    "content-hash": "5202c2b6f7a68c8d06775909763078aa",
+    "hash": "034b637ce4ffb0bbc55a017347bfa9fc",
+    "content-hash": "c7df07129311deaf4512443428e11c81",
     "packages": [
         {
             "name": "bramus/router",
@@ -510,6 +510,57 @@
                 "writable"
             ],
             "time": "2019-01-01 16:15:09"
+        },
+        {
+            "name": "splitbrain/php-cli",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/splitbrain/php-cli.git",
+                "reference": "b7be3726872547253dd0bd61098fa9f634c33555"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/splitbrain/php-cli/zipball/b7be3726872547253dd0bd61098fa9f634c33555",
+                "reference": "b7be3726872547253dd0bd61098fa9f634c33555",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.5.*"
+            },
+            "suggest": {
+                "psr/log": "Allows you to make the CLI available as PSR-3 logger"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "splitbrain\\phpcli\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Gohr",
+                    "email": "andi@splitbrain.org"
+                }
+            ],
+            "description": "Easy command line scripts for PHP with opt parsing and color output. No dependencies",
+            "keywords": [
+                "argparse",
+                "cli",
+                "command line",
+                "console",
+                "getopt",
+                "optparse",
+                "terminal"
+            ],
+            "time": "2019-10-16 07:31:14"
         }
     ],
     "packages-dev": [],

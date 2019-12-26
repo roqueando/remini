@@ -13,6 +13,10 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'splitbrain\\phpcli\\' => 18,
+        ),
         'R' => 
         array (
             'Remini\\' => 7,
@@ -35,6 +39,10 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
     );
 
     public static $prefixDirsPsr4 = array (
+        'splitbrain\\phpcli\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/splitbrain/php-cli/src',
+        ),
         'Remini\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -212,10 +220,22 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
         'React\\Stream\\Util' => __DIR__ . '/..' . '/react/stream/src/Util.php',
         'React\\Stream\\WritableResourceStream' => __DIR__ . '/..' . '/react/stream/src/WritableResourceStream.php',
         'React\\Stream\\WritableStreamInterface' => __DIR__ . '/..' . '/react/stream/src/WritableStreamInterface.php',
+        'Remini\\CLI\\Application' => __DIR__ . '/../..' . '/src/CLI/Application.php',
+        'Remini\\Core\\Concierge' => __DIR__ . '/../..' . '/src/core/Concierge.php',
+        'Remini\\Core\\Message' => __DIR__ . '/../..' . '/src/core/Message.php',
         'Remini\\Core\\Messager' => __DIR__ . '/../..' . '/src/core/Messager.php',
+        'Remini\\Core\\Sender' => __DIR__ . '/../..' . '/src/core/Sender.php',
+        'Remini\\Core\\Service' => __DIR__ . '/../..' . '/src/core/Service.php',
         'Remini\\Repositories\\BaseRepository' => __DIR__ . '/../..' . '/src/repositories/BaseRepository.php',
         'Remini\\Services\\BaseService' => __DIR__ . '/../..' . '/src/services/BaseService.php',
         'Remini\\Services\\HelloService' => __DIR__ . '/../..' . '/src/services/HelloService.php',
+        'Remini\\Services\\WorldService' => __DIR__ . '/../..' . '/src/services/WorldService.php',
+        'splitbrain\\phpcli\\CLI' => __DIR__ . '/..' . '/splitbrain/php-cli/src/CLI.php',
+        'splitbrain\\phpcli\\Colors' => __DIR__ . '/..' . '/splitbrain/php-cli/src/Colors.php',
+        'splitbrain\\phpcli\\Exception' => __DIR__ . '/..' . '/splitbrain/php-cli/src/Exception.php',
+        'splitbrain\\phpcli\\Options' => __DIR__ . '/..' . '/splitbrain/php-cli/src/Options.php',
+        'splitbrain\\phpcli\\PSR3CLI' => __DIR__ . '/..' . '/splitbrain/php-cli/src/PSR3CLI.php',
+        'splitbrain\\phpcli\\TableFormatter' => __DIR__ . '/..' . '/splitbrain/php-cli/src/TableFormatter.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

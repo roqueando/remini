@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+
+require_once  './vendor/autoload.php';
+
+use Remini\CLI\Application;
+
+(new Application)->run();
