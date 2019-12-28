@@ -9,7 +9,6 @@
     }
   ],
   "require": {
-    "nikic/fast-route": "^1.3",
     "bramus/router": "^1.4",
     "league/event": "^2.2",
     "react/event-loop": "^1.1",

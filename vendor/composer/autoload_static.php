@@ -9,7 +9,6 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
     public static $files = array (
         'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '972fda704d680a3a53c68e34e193cb22' => __DIR__ . '/..' . '/react/promise-timer/src/functions_include.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -31,10 +30,6 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
         'L' => 
         array (
             'League\\Event\\' => 13,
-        ),
-        'F' => 
-        array (
-            'FastRoute\\' => 10,
         ),
     );
 
@@ -79,10 +74,6 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
         array (
             0 => __DIR__ . '/..' . '/league/event/src',
         ),
-        'FastRoute\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
-        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -107,23 +98,6 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
         'Evenement\\EventEmitter' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitter.php',
         'Evenement\\EventEmitterInterface' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitterInterface.php',
         'Evenement\\EventEmitterTrait' => __DIR__ . '/..' . '/evenement/evenement/src/Evenement/EventEmitterTrait.php',
-        'FastRoute\\BadRouteException' => __DIR__ . '/..' . '/nikic/fast-route/src/BadRouteException.php',
-        'FastRoute\\DataGenerator' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator.php',
-        'FastRoute\\DataGenerator\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',
-        'FastRoute\\DataGenerator\\GroupCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/GroupCountBased.php',
-        'FastRoute\\DataGenerator\\GroupPosBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/GroupPosBased.php',
-        'FastRoute\\DataGenerator\\MarkBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/MarkBased.php',
-        'FastRoute\\DataGenerator\\RegexBasedAbstract' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/RegexBasedAbstract.php',
-        'FastRoute\\Dispatcher' => __DIR__ . '/..' . '/nikic/fast-route/src/Dispatcher.php',
-        'FastRoute\\Dispatcher\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/Dispatcher/CharCountBased.php',
-        'FastRoute\\Dispatcher\\GroupCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/Dispatcher/GroupCountBased.php',
-        'FastRoute\\Dispatcher\\GroupPosBased' => __DIR__ . '/..' . '/nikic/fast-route/src/Dispatcher/GroupPosBased.php',
-        'FastRoute\\Dispatcher\\MarkBased' => __DIR__ . '/..' . '/nikic/fast-route/src/Dispatcher/MarkBased.php',
-        'FastRoute\\Dispatcher\\RegexBasedAbstract' => __DIR__ . '/..' . '/nikic/fast-route/src/Dispatcher/RegexBasedAbstract.php',
-        'FastRoute\\Route' => __DIR__ . '/..' . '/nikic/fast-route/src/Route.php',
-        'FastRoute\\RouteCollector' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteCollector.php',
-        'FastRoute\\RouteParser' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser.php',
-        'FastRoute\\RouteParser\\Std' => __DIR__ . '/..' . '/nikic/fast-route/src/RouteParser/Std.php',
         'League\\Event\\AbstractEvent' => __DIR__ . '/..' . '/league/event/src/AbstractEvent.php',
         'League\\Event\\AbstractListener' => __DIR__ . '/..' . '/league/event/src/AbstractListener.php',
         'League\\Event\\BufferedEmitter' => __DIR__ . '/..' . '/league/event/src/BufferedEmitter.php',
@@ -221,13 +195,10 @@ class ComposerStaticInitc220412ce868d8d3a16f2a6ccfd56811
         'React\\Stream\\WritableResourceStream' => __DIR__ . '/..' . '/react/stream/src/WritableResourceStream.php',
         'React\\Stream\\WritableStreamInterface' => __DIR__ . '/..' . '/react/stream/src/WritableStreamInterface.php',
         'Remini\\CLI\\Application' => __DIR__ . '/../..' . '/src/CLI/Application.php',
-        'Remini\\Core\\Concierge' => __DIR__ . '/../..' . '/src/core/Concierge.php',
-        'Remini\\Core\\Message' => __DIR__ . '/../..' . '/src/core/Message.php',
+        'Remini\\Core\\Manager' => __DIR__ . '/../..' . '/src/core/Manager.php',
         'Remini\\Core\\Messager' => __DIR__ . '/../..' . '/src/core/Messager.php',
-        'Remini\\Core\\Sender' => __DIR__ . '/../..' . '/src/core/Sender.php',
         'Remini\\Core\\Service' => __DIR__ . '/../..' . '/src/core/Service.php',
         'Remini\\Repositories\\BaseRepository' => __DIR__ . '/../..' . '/src/repositories/BaseRepository.php',
-        'Remini\\Services\\BaseService' => __DIR__ . '/../..' . '/src/services/BaseService.php',
         'Remini\\Services\\HelloService' => __DIR__ . '/../..' . '/src/services/HelloService.php',
         'Remini\\Services\\WorldService' => __DIR__ . '/../..' . '/src/services/WorldService.php',
         'splitbrain\\phpcli\\CLI' => __DIR__ . '/..' . '/splitbrain/php-cli/src/CLI.php',

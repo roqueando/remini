@@ -16,5 +16,4 @@ return array(
     'React\\Dns\\' => array($vendorDir . '/react/dns/src'),
     'React\\Cache\\' => array($vendorDir . '/react/cache/src'),
     'League\\Event\\' => array($vendorDir . '/league/event/src'),
-    'FastRoute\\' => array($vendorDir . '/nikic/fast-route/src'),
 );

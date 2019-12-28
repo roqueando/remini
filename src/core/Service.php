@@ -5,7 +5,10 @@ namespace Remini\Core;
 use Evenement\EventEmitter;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
+use React\Socket\ConnectionInterface;
 use React\Socket\Server;
+use React\Socket\TcpConnector;
+use Remini\Core\Messager;
 
 abstract class Service
 {
@@ -27,6 +30,9 @@ abstract class Service
    */
   private $eventEmitter;
 
+  public $messager;
+
+  protected $queueName;
   /**
    * Controls the mail while loop of event loop
    * @var integer
@@ -48,6 +54,11 @@ abstract class Service
     return $this->id;
   }
 
+  public function __construct(Messager $messager = null)
+  {
+    $this->messager = $messager;
+  }
+
   public function run(string $host = '127.0.0.1', int $port = 8000)
   {
     global $_serviceLoop;
@@ -58,16 +69,34 @@ abstract class Service
     $this->loop = $_serviceLoop = Factory::create();
     $_service = $this;
 
-    $url = $host . ':' . $port;
-    $socket = new Server($host . ':' . $port, $this->loop);
+    // that service must connect to the Manager
+    $connector = new TcpConnector($this->loop);
+    $connector->connect('127.0.0.1:8000')
+      ->then(function (ConnectionInterface $conn) {
+        $conn->on('data', function ($data) {
+          echo $data;
+        });
+      });
 
-    $socket->on('connection', function ($connection) {
-      $connection->write("Hello fella");
-    });
-    $this->loop->run();
+    // $this->loop->run();
+
+
+    // exit($this->exit);
+    return $this;
   }
 
   public function serve(LoopInterface $loop)
   {
+  }
+
+  public function sendMessage(string $queue, $message)
+  {
+    $this->messager->send($queue, $message);
+  }
+
+  public function listenQueue(string $queue)
+  {
+    $this->messager->listen($queue);
+    return $this;
   }
 }

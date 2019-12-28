@@ -7,7 +7,4 @@ use Remini\Core\Service;
 
 class HelloService extends Service
 {
-  public function __construct()
-  {
-  }
 }

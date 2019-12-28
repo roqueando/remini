@@ -2,9 +2,8 @@
 
 namespace Remini\Services;
 
+use Remini\Core\Service;
+
 class WorldService extends Service
 {
-  public function __construct()
-  {
-  }
 }
