@@ -33,7 +33,7 @@ class Manager
 
     $socket->on('connection', function (ConnectionInterface $conn) {
       $conn->write('A service [' . $conn->getRemoteAddress() . '] was connected');
-      echo "A service [{$conn->getRemoteAddress()}] was connected \n";
+      echo "\e[33mA service [{$conn->getRemoteAddress()}] was connected \n";
 
       $conn->on('data', function ($data) {
         echo "a data [$data] was received";
@@ -52,7 +52,7 @@ class Manager
     foreach (glob('src/services/*.php') as $file) {
       $name = strtolower(basename($file, 'Service.php'));
       $this->messager->createQueue($name);
-      echo "Created $name queue \n";
+      echo "\e[35mCreated $name queue \n";
     }
   }
   private function runServices(): void
@@ -64,7 +64,7 @@ class Manager
       $class = 'Remini\\Services\\' . basename($file, '.php');
 
       if (class_exists($class)) {
-        echo "spawning $class \n";
+        echo "\e[32mspawning $class \n";
         (new $class($this->messager))->run();
       }
     }

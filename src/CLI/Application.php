@@ -29,23 +29,7 @@ class Application extends CLI
     if ($options->getOpt('up')) {
       // initiate the messager
       $this->info('Running Manager on tcp://127.0.0.1:8000');
-      $this->success('Running Remini\Services\HelloService');
-      $this->success('Running Remini\Services\WorldServices');
-
       (new Manager((new Messager)))->run();
-
-
-      /*
-        TODO: get all services classes 
-        and call the function run() for everybody;
-
-        Accessing the `services` folder 
-        and listing one by one.
-        For each class, get that class
-        to a variable and call run();
-        
-        Then all services will be up together.
-      */
       return;
     }
   }

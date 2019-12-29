@@ -65,8 +65,6 @@ final class Messager
     $currentQueue = msg_get_queue($this->getQueueByName($queue));
     while (msg_receive($currentQueue, 1, $msg_type, 1024, $message, true, MSG_IPC_NOWAIT, $error_code)) {
       $this->setResults($message, $queue);
-      var_dump($this->results);
-      // var_dump($message);
     }
     return $this;
   }
