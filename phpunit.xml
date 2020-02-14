@@ -1,0 +1,14 @@
+<phpunit
+  colors="true"
+  stopOnError="false"
+  stopOnFailure="false"
+  stopOnIncomplete="false"
+  stopOnSkipped="false"
+  stopOnRisky="false"
+  >
+  <testsuites>
+    <testsuite name="Features">
+      <directory suffix="Test.php">src/tests/Features</directory>
+    </testsuite>
+  </testsuites> 
+</phpunit>

@@ -2,6 +2,7 @@
 
 namespace Remini\Core;
 
+use Exception;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 use React\Socket\ConnectionInterface;
@@ -26,23 +27,20 @@ class Manager
     $this->messager = $messager;
   }
 
-  public function run(int $port = 8000, string $host = '127.0.0.1')
+  public function run(int $port = 8000, string $host = '127.0.0.1'): Manager
   {
-    $uri = $host . ':' . $port;
-    $socket = new TcpServer($port, $this->loop);
+    $socket = stream_socket_server("tcp://$host:$port", $errno, $errstr);
 
-    $socket->on('connection', function (ConnectionInterface $conn) {
-      $conn->write('A service [' . $conn->getRemoteAddress() . '] was connected');
-      echo "\e[33mA service [{$conn->getRemoteAddress()}] was connected \n";
-
-      $conn->on('data', function ($data) {
-        echo "a data [$data] was received";
-      });
-    });
-
-    $this->upQueues();
-    $this->runServices();
-    $this->loop->run();
+    if(!$socket) {
+      throw new Exception("[$errno]: $errstr");
+    }
+    while($conn = stream_socket_accept($socket)) {
+      fwrite($conn, "Running Manager on tcp://$host:$port");
+      var_dump(stream_socket_recvfrom($conn, 1500, STREAM_OOB));
+    }
+    //$this->upQueues();
+    //$this->runServices();
+    //$this->loop->run();
     return $this;
   }
 
