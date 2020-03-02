@@ -2,6 +2,8 @@
 
 namespace Remini\Core\Contracts;
 
+use Remini\Core\Server as ServerClass;
+
 interface Server
 {
     const HTTP = 'http';
@@ -9,7 +11,7 @@ interface Server
 
     public function __construct(string $host);
 
-    public function setType(string $type): void;
+    public function setType(string $type): ServerClass;
 
     public function getType(): string;
 

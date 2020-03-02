@@ -5,7 +5,6 @@ use Remini\Tests\ReminiTestCase;
 
 class ManagerTest extends ReminiTestCase
 {
-    const LOG_FILE = "src/tests/.output/manager.log";
     public function setUp(): void
     {
         parent::setUp();
@@ -17,8 +16,12 @@ class ManagerTest extends ReminiTestCase
         $this->runServer();
         sleep(1);
 
-        $log = file_get_contents(self::LOG_FILE);
+        $log = file_get_contents(self::LOG_PATH);
         $this->assertNotEmpty($log);
-        $this->assertStringContainsString("Service found", $log);
+
+        $service_log = file_get_contents(self::SERVICE_LOG_PATH);
+
+        $this->assertGreaterThan(0, count($this->servicesPID));
+        $this->assertStringContainsString("Initializing service HomeTest", $service_log);
     }
 }

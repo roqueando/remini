@@ -4,14 +4,14 @@ namespace Remini\Tests;
 
 use PHPUnit\Framework\TestCase;
 
-use function PHPUnit\Framework\throwException;
-
 class ReminiTestCase extends TestCase
 {
     protected $managerPid;
     protected $servicesPID = [];
 
     const LOG_PATH = 'src/tests/.output/manager.log';
+    const SERVICE_FILE = "src/services/HomeTestService.php";
+    const SERVICE_LOG_PATH = "src/tests/.output/service.log";
 
     public function setUp(): void
     {
@@ -21,8 +21,9 @@ class ReminiTestCase extends TestCase
     public function tearDown(): void
     {
         file_put_contents(self::LOG_PATH, "");
+        //file_put_contents(self::SERVICE_LOG_PATH, "");
         $this->stopManager();
-        //$this->stopServices();
+        $this->stopServices();
     }
     protected function runServer()
     {
@@ -32,21 +33,25 @@ class ReminiTestCase extends TestCase
 
     protected function upServices()
     {
-        $files = glob("src/services/*Services.php");
-        $notFound = 0;
+        $this->createService();
+        $files = glob("src/services/*.php");
         $msg = '';
         
         foreach ($files as $file) {
-            if (!file_exists($file)) {
-                $notFound++;
+            if (file_exists($file)) {
+                [$root, $folder, $filename] = explode("/", $file);
+                $service = preg_replace(["/Service.php/"], '', $filename);
+            
+                $this->servicesPID[] = exec(
+                    "php remini --init $service > src/tests/.output/service.log 2>&1 & echo $!",
+                    $output
+                );
             }
-            $msg = 'Service found';
-        }
-        if ($notFound <= 0) {
-            $msg = 'No services found';
         }
 
-        file_put_contents(self::LOG_PATH, $msg);
+        file_put_contents(self::SERVICE_LOG_PATH, $msg);
+        sleep(1);
+        $this->removeService();
     }
 
     protected function upManager(): void
@@ -61,5 +66,23 @@ class ReminiTestCase extends TestCase
     protected function stopManager()
     {
         exec("kill {$this->managerPid} > /dev/null 2>&1");
+    }
+    protected function stopServices()
+    {
+        foreach ($this->servicesPID as $PID) {
+            exec("kill $PID");
+        }
+    }
+
+    protected function createService(): void
+    {
+        $serviceClass = "<?php namespace Remini\Services;use Remini\Core\Service;class HomeTestService extends Service {}";
+        file_put_contents(self::SERVICE_FILE, $serviceClass);
+    }
+    protected function removeService(): void
+    {
+        if (file_exists(self::SERVICE_FILE)) {
+            unlink(self::SERVICE_FILE);
+        }
     }
 }

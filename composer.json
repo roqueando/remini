@@ -9,16 +9,13 @@
     }
   ],
   "require": {
-    "bramus/router": "^1.4",
-    "league/event": "^2.2",
-    "react/event-loop": "^1.1",
-    "react/socket": "^1.3.0",
     "evenement/evenement": "^3.0",
     "splitbrain/php-cli": "^1.1"
   },
   "autoload": {
     "psr-4": {
-      "Remini\\": "src/"
+      "Remini\\": "src/",
+      "Remini\\Services\\": "src/services/"
     }
   },
   "require-dev": {

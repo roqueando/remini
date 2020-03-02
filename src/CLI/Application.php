@@ -41,10 +41,13 @@ class Application extends CLI
                 $this->error("Service $result not found!");
                 return;
             }
-            $file = require_once("src/services/{$result}Service.php");
-            (new $file('127.0.0.1'))
-                ->setType('node')
-                ->run();
+            
+            $class = "Remini\\Services\\" . $result . "Service";
+            if (class_exists($class)) {
+                (new $class('127.0.0.1'))
+                    ->setType('node')
+                    ->run();
+            }
             return;
         }
     }
