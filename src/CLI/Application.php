@@ -14,7 +14,6 @@ class Application extends CLI
         $options->registerOption('version', 'Show the application version', 'v');
         $options->registerOption('up', 'Up manager', 'u');
         $options->registerOption('init', 'Initialize a service', 'i');
-        $options->registerArgument('service', 'Service name');
     }
 
     protected function main(Options $options)
@@ -34,6 +33,8 @@ class Application extends CLI
         }
 
         if ($options->getOpt('init')) {
+
+            $options->registerArgument('service', 'Service name');
             $result = $options->getArgs()[0];
             $this->info("Initializing service $result");
             

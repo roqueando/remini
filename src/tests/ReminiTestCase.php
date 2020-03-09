@@ -8,6 +8,7 @@ class ReminiTestCase extends TestCase
 {
     protected $managerPid;
     protected $servicesPID = [];
+    protected $serviceNames = [];
 
     const LOG_PATH = 'src/tests/.output/manager.log';
     const SERVICE_FILE = "src/services/HomeTestService.php";
@@ -36,12 +37,13 @@ class ReminiTestCase extends TestCase
         $this->createService();
         $files = glob("src/services/*.php");
         $msg = '';
-        
+
         foreach ($files as $file) {
             if (file_exists($file)) {
                 [$root, $folder, $filename] = explode("/", $file);
                 $service = preg_replace(["/Service.php/"], '', $filename);
             
+                $this->serviceNames[] = $service;
                 $this->servicesPID[] = exec(
                     "php remini --init $service > src/tests/.output/service.log 2>&1 & echo $!",
                     $output
@@ -49,7 +51,8 @@ class ReminiTestCase extends TestCase
             }
         }
 
-        file_put_contents(self::SERVICE_LOG_PATH, $msg);
+       // file_put_contents(self::SERVICE_LOG_PATH, $msg);
+        var_dump(file_get_contents(self::SERVICE_LOG_PATH));
         sleep(1);
         $this->removeService();
     }

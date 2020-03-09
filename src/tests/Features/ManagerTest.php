@@ -22,6 +22,28 @@ class ManagerTest extends ReminiTestCase
         $service_log = file_get_contents(self::SERVICE_LOG_PATH);
 
         $this->assertGreaterThan(0, count($this->servicesPID));
-        $this->assertStringContainsString("Initializing service HomeTest", $service_log);
+
+        foreach($this->serviceNames as $service) {
+            $this->assertStringContainsString("Initializing service $service", $service_log);
+        }
+    }
+
+    public function should_manage_messages() {
+        $this->runServer();
+        sleep(1);
+        $data = [
+            'service' => 'HomeTest',
+            'action' => 'say',
+            'data' => 'John'
+        ];
+
+        $this->createSocketAndSendData($data); 
+        $managerLog = file_get_contents(self::LOG_PATH);
+        $this->assertStringContainsString("Sending message to {$data['service']}", $managerLog);
+    }
+
+    private function createSocketAndSendData($data): void {
+        $client = stream_socket_client($this->host);
+        stream_socket_sendto($client, json_encode($data));
     }
 }
